@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/cadastroid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Cadastro de Funcionário"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="30sp" />
+
+
+
+    <EditText
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:hint="nome"
+        />
+
+
+    <TextView
+        android:id="@+id/edit_text_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/text3"
+        android:layout_width="390sp"
+        android:layout_height="30sp"
+        android:layout_marginHorizontal="12dp" />
+
+
+    <TextView
+        android:id="@+id/edit_text_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp"
+        android:hint="Endereço" />
+
+    <EditText
+        android:id="@+id/text4"
+        android:layout_width="390sp"
+        android:layout_height="30sp"
+        android:layout_marginHorizontal="12dp" />
+
+    <TextView
+        android:id="@+id/edit_text_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp"
+        android:hint="Profissão" />
+
+    <EditText
+        android:id="@+id/text5"
+        android:layout_width="390sp"
+        android:layout_height="30sp"
+        android:layout_marginHorizontal="12dp" />
+
+    <Button
+        android:id="@+id/botao_main"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="115dp"
+        android:background="@color/colorPrimary"
+        android:text="Enviar"
+        android:textColor="@android:color/background_light" />
+
+
+</LinearLayout>
