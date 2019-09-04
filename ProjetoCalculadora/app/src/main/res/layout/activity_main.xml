@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/numero01"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Digite o primeiro número." />
+
+        <EditText
+            android:id="@+id/numero02"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Digite o segundo número." />
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top">
+
+            <Button
+                android:id="@+id/divisao"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="@string/divisao" />
+
+            <Button
+                android:id="@+id/multiplicar"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="@string/multiplicar" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/somar"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:text="@string/somar" />
+
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/menos"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:text="@string/menos" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/resultado"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Resultado" />
+    </LinearLayout>
+
+</LinearLayout>
