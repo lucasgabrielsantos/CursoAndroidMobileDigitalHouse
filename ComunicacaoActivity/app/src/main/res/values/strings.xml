@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ComunicacaoActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ios">iOS</string>
+    <string name="android">Android</string>
+    <string name="nome_android">Nome Android</string>
+</resources>

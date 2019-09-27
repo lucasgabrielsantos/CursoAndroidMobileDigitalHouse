@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ConsultaValor</string>
+    <string name="nome_do_produto">Nome do produto</string>
+    <string name="porcentagem_de_desconto">Porcentagem de desconto</string>
+    <string name="pre_o_do_produto">Preço do Produto</string>
+    <string name="total">Valor total a pagar</string>
 </resources>
