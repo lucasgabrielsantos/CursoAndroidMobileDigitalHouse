@@ -84,7 +84,7 @@ public class HomeActivity extends AppCompatActivity {
 
     //Sobreescrever o método onBackPressed e implementar a lógica
     @Override
-    public void onBackPressed() {
+    public void onBackPressed(){
         super.onBackPressed();
     }
 

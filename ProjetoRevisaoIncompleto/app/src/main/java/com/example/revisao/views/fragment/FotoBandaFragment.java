@@ -20,7 +20,7 @@ import com.example.revisao.views.activity.HomeActivity;
 public class FotoBandaFragment extends Fragment {
 
 
-    private static final String MSG_KEY = "mensagem";
+  //  private static final String MSG_KEY = "mensagem";
     private TextView txtNomeBanda;
     private Button btnVoltar;
 
