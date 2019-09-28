@@ -1,8 +1,10 @@
 package com.example.revisao.views.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -22,11 +24,13 @@ import com.google.android.material.navigation.NavigationView;
 public class HomeActivity extends AppCompatActivity {
     private DrawerLayout drawer;
     private AppBarConfiguration mAppBarConfiguration;
+    private Button btnsair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        btnsair = findViewById(R.id.action_sair);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -48,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_music, R.id.nav_food)
+                R.id.nav_music, R.id.nav_food, R.id.action_sair)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -71,8 +75,6 @@ public class HomeActivity extends AppCompatActivity {
 
                 }
 
-                // VOU USAR PARA O BOTAO SAIR startActivity(new Intent(HomeActivity.this, StartActivity.class));
-
                 //chama a ação de close do drawerLayout e mover a gaveta para direita
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
@@ -90,6 +92,7 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
+
         return true;
     }
 
@@ -97,7 +100,15 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return super.onOptionsItemSelected(item);
+
+        switch (item.getItemId()) {
+            case R.id.action_sair:
+                getMenuInflater();
+                startActivity(new Intent(this, StartActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 

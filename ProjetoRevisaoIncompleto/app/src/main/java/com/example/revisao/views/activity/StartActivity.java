@@ -70,7 +70,7 @@ public class StartActivity extends AppCompatActivity {
 
         if (nome.isEmpty()) {
             inputNome.setError("Campo vazio. ");
-            vibrar(200);
+            vibrar(400);
 
             return;
         } else {

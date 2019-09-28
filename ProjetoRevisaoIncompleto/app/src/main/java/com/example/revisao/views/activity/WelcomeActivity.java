@@ -41,7 +41,7 @@ public class WelcomeActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(WelcomeActivity.this, HomeActivity.class));
-                //finish();
+                finish();
             }
         });
     }

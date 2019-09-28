@@ -41,7 +41,6 @@ public class FotoBandaFragment extends Fragment {
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 HomeActivity contexto = (HomeActivity) getContext();
                 contexto.replaceFragment(new BandaFragment());
             }
