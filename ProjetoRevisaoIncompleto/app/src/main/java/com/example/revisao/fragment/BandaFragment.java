@@ -1,9 +1,7 @@
-package com.example.revisao.views.fragment;
+package com.example.revisao.fragment;
 
 
 import android.content.Context;
-import android.content.Intent;
-import android.icu.text.Replaceable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +11,8 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 
 import com.example.revisao.R;
-import com.example.revisao.views.Interface.Comunicador;
-import com.example.revisao.views.activity.HomeActivity;
+import com.example.revisao.Interface.Comunicador;
+import com.example.revisao.activity.HomeActivity;
 
 /**
  * A simple {@link Fragment} subclass.

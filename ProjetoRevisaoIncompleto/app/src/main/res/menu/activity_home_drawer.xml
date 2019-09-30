@@ -11,6 +11,10 @@
             android:id="@+id/nav_food"
             android:icon="@drawable/ic_restaurant"
             android:title="Comida Favorita" />
+        <item
+            android:id="@+id/nav_banda"
+            android:icon="@drawable/ic_music"
+            android:title="Músicas Favorita" />
     </group>
 
 

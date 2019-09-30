@@ -1,4 +1,4 @@
-package com.example.revisao.views.fragment;
+package com.example.revisao.fragment;
 
 
 import android.os.Bundle;
@@ -14,10 +14,10 @@ import com.example.revisao.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ComidaFragment extends Fragment {
+public class MusicaBandaFragment extends Fragment {
 
 
-    public ComidaFragment() {
+    public MusicaBandaFragment() {
         // Required empty public constructor
     }
 
@@ -26,7 +26,7 @@ public class ComidaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_comida, container, false);
+        return inflater.inflate(R.layout.fragment_musica_banda, container, false);
     }
 
 }

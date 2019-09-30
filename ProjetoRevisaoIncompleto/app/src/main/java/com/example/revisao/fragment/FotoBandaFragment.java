@@ -1,7 +1,6 @@
-package com.example.revisao.views.fragment;
+package com.example.revisao.fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.revisao.R;
-import com.example.revisao.views.activity.HomeActivity;
+import com.example.revisao.activity.HomeActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,7 +19,7 @@ import com.example.revisao.views.activity.HomeActivity;
 public class FotoBandaFragment extends Fragment {
 
 
-  //  private static final String MSG_KEY = "mensagem";
+
     private TextView txtNomeBanda;
     private Button btnVoltar;
 

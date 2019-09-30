@@ -1,4 +1,4 @@
-package com.example.revisao.views.activity;
+package com.example.revisao.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

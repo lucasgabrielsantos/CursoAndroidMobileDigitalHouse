@@ -19,4 +19,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="aero_text">Aerosmith é uma banda norte-americana de rock, por vezes referida como The Bad Boys from Boston e A Maior Banda de Rock and Roll da América</string>
     <string name="lasanha_text">Lasanha é tanto um tipo de massa em folhas, como também um prato, por vezes chamado lasanha ao forno, feito com camadas alternadas de massa, queijo e molho de carne</string>
+    <string name="nomemusica">Nome da música</string>
+    <string name="nome_da_banda">Nome da banda</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.revisao.views.activity;
+package com.example.revisao.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,8 +16,9 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.revisao.R;
-import com.example.revisao.views.fragment.BandaFragment;
-import com.example.revisao.views.fragment.ComidaFragment;
+import com.example.revisao.fragment.BandaFragment;
+import com.example.revisao.fragment.ComidaFragment;
+import com.example.revisao.fragment.MusicaBandaFragment;
 import com.google.android.material.navigation.NavigationView;
 
 //Implemetar a interface Comunicador e sobrescrever seu respectivo método
@@ -52,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_music, R.id.nav_food, R.id.action_sair)
+                R.id.nav_music, R.id.nav_food,R.id.banda_id, R.id.action_sair)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -73,6 +74,11 @@ public class HomeActivity extends AppCompatActivity {
                     //Faço o replace do fragmento de Galeria quando clicar no botão de Galeria
                     replaceFragment(new ComidaFragment());
 
+                } else if (id == R.id.nav_banda) {
+
+                    //Faço o replace do fragmento de Galeria quando clicar no botão de Galeria
+                    replaceFragment(new MusicaBandaFragment());
+
                 }
 
                 //chama a ação de close do drawerLayout e mover a gaveta para direita
@@ -84,8 +90,12 @@ public class HomeActivity extends AppCompatActivity {
 
     //Sobreescrever o método onBackPressed e implementar a lógica
     @Override
-    public void onBackPressed(){
-        super.onBackPressed();
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
