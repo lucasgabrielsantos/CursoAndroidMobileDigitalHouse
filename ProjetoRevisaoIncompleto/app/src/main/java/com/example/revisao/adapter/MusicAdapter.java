@@ -26,7 +26,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder>{
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_musica_banda,viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_music,viewGroup, false);
         return new ViewHolder(view);
     }
     //Método que possui um objeto que recebe o valor de acordo com a posição da lista
@@ -53,6 +53,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder>{
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            
             txtNomeBanda = itemView.findViewById(R.id.banda_id);
             txtNomeMusica = itemView.findViewById(R.id.musica_id);
         }
@@ -62,6 +63,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder>{
 
             txtNomeBanda.setText(musica.getNomecantor());
             txtNomeMusica.setText(musica.getNomemusica());
+
 
         }
     }
