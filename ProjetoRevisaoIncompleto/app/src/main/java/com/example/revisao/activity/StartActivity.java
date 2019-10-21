@@ -47,13 +47,6 @@ public class StartActivity extends AppCompatActivity {
         btnEnviar = findViewById(R.id.btnEnviar);
     }
 
-//    //Implementar o a lógica do método de envio de dados para activity
-//    private void enviaNomeActivity(String nome) {
-//
-//
-//    }
-
-
     public void telaWelcome() {
         Intent intentbemvindo = new Intent(StartActivity.this, WelcomeActivity.class);
         Bundle bundle = new Bundle();
