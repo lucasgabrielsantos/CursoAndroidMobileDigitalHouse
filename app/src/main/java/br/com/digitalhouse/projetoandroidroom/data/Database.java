@@ -1,15 +1,12 @@
-package com.example.androidroomproject.data;
+package br.com.digitalhouse.projetoandroidroom.data;
 
 import android.content.Context;
 
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import br.com.digitalhouse.projetoandroidroom.Interfaces.ProdutoDao;
+import br.com.digitalhouse.projetoandroidroom.models.Produto;
 
-import com.example.androidroomproject.interfaces.ProdutoDao;
-import com.example.androidroomproject.model.Produto;
-
-//A anotação @Database determina quais são as classes anotadas como entindades, qual a versão do BD e
-//se o schema do bd será exportado ou nao
 @androidx.room.Database(entities = {Produto.class}, version = 1, exportSchema = false)
 public abstract class Database extends RoomDatabase {
 
@@ -17,8 +14,9 @@ public abstract class Database extends RoomDatabase {
 
     public abstract ProdutoDao produtoDao();
 
+
     public static Database getDatabase(Context context) {
-        if (INSTANCE == null){
+        if (INSTANCE == null) {
             synchronized (Database.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context, Database.class, "produtos_db")

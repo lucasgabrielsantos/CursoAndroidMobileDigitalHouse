@@ -1,4 +1,4 @@
-package com.example.androidroomproject.view;
+package br.com.digitalhouse.projetoandroidroom.views.activitys;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,18 +7,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.androidroomproject.R;
-import com.example.androidroomproject.adapter.RecyclerViewAdapter;
-import com.example.androidroomproject.data.Database;
-import com.example.androidroomproject.interfaces.OnClick;
-import com.example.androidroomproject.interfaces.ProdutoDao;
-import com.example.androidroomproject.model.Produto;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.digitalhouse.projetoandroidroom.Interfaces.OnClick;
+import br.com.digitalhouse.projetoandroidroom.Interfaces.ProdutoDao;
+import br.com.digitalhouse.projetoandroidroom.R;
+import br.com.digitalhouse.projetoandroidroom.adapters.RecyclerViewAdapter;
+import br.com.digitalhouse.projetoandroidroom.data.Database;
+import br.com.digitalhouse.projetoandroidroom.models.Produto;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -93,24 +93,25 @@ public class MainActivity extends AppCompatActivity implements OnClick {
     }
 
     private void initViews() {
+
         btnAdd = findViewById(R.id.floatingActionButtonAdd);
         btnDelete = findViewById(R.id.floatingActionButtonDelete);
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.RecyclerView);
         adapter = new RecyclerViewAdapter(listaProdutos, this);
         inputNomeProduto = findViewById(R.id.textInputLayoutNome);
         inputPrecoProduto = findViewById(R.id.textInputLayoutPreco);
 
         //Inicialização do DAO a partir da classe Database
         produtoDao = Database.getDatabase(this).produtoDao();
+
     }
 
     @Override
-    public void onClick(Produto produto) {
+    public void OnClick(Produto produto) {
 
         inputNomeProduto.getEditText().setText(produto.getNomeProduto());
         String preco = String.valueOf(produto.getPreco());
         inputPrecoProduto.getEditText().setText(preco);
-
 
     }
 
@@ -133,5 +134,4 @@ public class MainActivity extends AppCompatActivity implements OnClick {
                             Log.i("TAG", "método getAllProdutos" + throwable.getMessage());
                         });
     }
-
 }
