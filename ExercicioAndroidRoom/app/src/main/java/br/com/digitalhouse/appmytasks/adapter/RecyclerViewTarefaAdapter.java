@@ -8,8 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 import br.com.digitalhouse.appmytasks.R;
@@ -21,6 +19,7 @@ public class RecyclerViewTarefaAdapter extends RecyclerView.Adapter<RecyclerView
 
     public RecyclerViewTarefaAdapter(List<Tarefa> tarefaList) {
         this.tarefaList = tarefaList;
+
     }
 
     @NonNull
@@ -50,15 +49,35 @@ public class RecyclerViewTarefaAdapter extends RecyclerView.Adapter<RecyclerView
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView nome;
+        private TextView descricao;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             nome = itemView.findViewById(R.id.textViewNomeTarefa);
+            descricao = itemView.findViewById(R.id.textViewDescricaoTarefa);
+
+            itemView.setOnClickListener(v -> {
+                int descriptionState = descricao.getVisibility();
+                if (descriptionState == View.VISIBLE) {
+                    toggleDescription(false);
+                } else {
+                    toggleDescription(true);
+                }
+            });
+        }
+
+        private void toggleDescription(boolean show) {
+            if (show) {
+                descricao.setVisibility(View.VISIBLE);
+            } else {
+                descricao.setVisibility(View.GONE);
+            }
         }
 
         public void onBind(Tarefa tarefa) {
             nome.setText(tarefa.getNome());
+            descricao.setText(tarefa.getDescricao());
         }
     }
 }
