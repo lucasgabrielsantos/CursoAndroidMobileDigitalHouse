@@ -16,10 +16,10 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Handler handler = new Handler();
-        handler.postDelayed(() -> mostrarActivity(), 1000);
+        handler.postDelayed(() -> nextActivity(), 1000);
 
     }
-    private void mostrarActivity(){
+    private void nextActivity(){
         Intent intent = new Intent(this, ListaActivity.class);
         startActivity(intent);
         finish();
