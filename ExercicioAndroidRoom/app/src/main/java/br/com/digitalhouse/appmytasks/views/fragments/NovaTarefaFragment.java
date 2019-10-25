@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -18,10 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.digitalhouse.appmytasks.R;
-import br.com.digitalhouse.appmytasks.adapter.RecyclerViewTarefaAdapter;
-import br.com.digitalhouse.appmytasks.data.DatabaseLocal;
-import br.com.digitalhouse.appmytasks.data.TarefaDao;
-import br.com.digitalhouse.appmytasks.model.Tarefa;
+import br.com.digitalhouse.appmytasks.model.data.DatabaseLocal;
+import br.com.digitalhouse.appmytasks.model.data.TarefaDao;
+import br.com.digitalhouse.appmytasks.model.pojos.Tarefa;
+import br.com.digitalhouse.appmytasks.viewmodel.viewmodelfragment.HomeFragmentViewModel;
+import br.com.digitalhouse.appmytasks.viewmodel.viewmodelfragment.NovaTarefaFragmentViewModel;
+import br.com.digitalhouse.appmytasks.viewmodel.viewmodelfragment.TodasTarefasFragmentViewModel;
+import br.com.digitalhouse.appmytasks.views.adapter.RecyclerViewTarefaAdapter;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -35,6 +39,7 @@ public class NovaTarefaFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerViewTarefaAdapter adapter;
     private List<Tarefa> tarefaList = new ArrayList<>();
+    private NovaTarefaFragmentViewModel viewModel;
 
     private TarefaDao tarefaDao;
 
@@ -55,21 +60,12 @@ public class NovaTarefaFragment extends Fragment {
             String nomeTarefa = nome.getEditText().getText().toString();
             String descricaoTarefa = descricao.getEditText().getText().toString();
 
-
-            //TODO: Desenvolver a ação de inserção dos dados no BD
-
             if (!nomeTarefa.isEmpty() && !descricaoTarefa.isEmpty()) {
 
-                new Thread(() -> {
+                Tarefa tarefa = new Tarefa(nomeTarefa, descricaoTarefa);
 
-                    Tarefa tarefa = new Tarefa(nomeTarefa, descricaoTarefa);
-
-                    if (tarefa != null) {
-
-                        tarefaDao.insereTarefa(tarefa);
-                    }
-
-                }).start();
+                //Método que insere a nova tarefa no banco de dados
+                viewModel.insereTarefaNoBanco(tarefa);
 
                 nome.getEditText().setText("");
                 descricao.getEditText().setText("");
@@ -84,36 +80,15 @@ public class NovaTarefaFragment extends Fragment {
         });
 
         return view;
-
     }
 
     private void initViews(View view) {
         nome = view.findViewById(R.id.textInpuLayoutNome);
         descricao = view.findViewById(R.id.textInputLayoutDescricao);
         btnAdd = view.findViewById(R.id.floatingActionButtonSalvar);
+        viewModel = ViewModelProviders.of(this).get(NovaTarefaFragmentViewModel.class);
 
-        //TODO: inicializar o DAO
-        tarefaDao = DatabaseLocal.getDatabase(getActivity()).tarefaDao();
     }
 
-    private void buscaTodosTarefas() {
-
-        //Chama o método que retorna os dados no bd , lembrando que esse método retorna um Observable
-        tarefaDao.getAllTarefas()
-                //SubscribeOn: determina em qual thread o observable irá emitir os dados
-                .subscribeOn(Schedulers.io())
-                //ObserveOn: determina em qual thread será executa quando os dados forem emitidos
-                .observeOn(AndroidSchedulers.mainThread())
-                //Assina o observer ao observable
-                //Se for sucesso irá pegar a lista de tarefas e setar no método do adapter que atualiza a lista de tarefas
-                .subscribe(tarefas -> {
-                            adapter.atualizaListaTarefa(tarefas);
-                        },
-
-                        //Senão irá lançar uma exceção
-                        throwable -> {
-                            Log.i("TAG", "método getAllTarefa" + throwable.getMessage());
-                        });
-    }
 
 }

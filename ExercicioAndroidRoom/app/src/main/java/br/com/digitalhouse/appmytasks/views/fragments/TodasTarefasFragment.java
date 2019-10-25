@@ -2,12 +2,12 @@ package br.com.digitalhouse.appmytasks.views.fragments;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,12 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.digitalhouse.appmytasks.R;
-import br.com.digitalhouse.appmytasks.adapter.RecyclerViewTarefaAdapter;
-import br.com.digitalhouse.appmytasks.data.DatabaseLocal;
-import br.com.digitalhouse.appmytasks.data.TarefaDao;
-import br.com.digitalhouse.appmytasks.model.Tarefa;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import br.com.digitalhouse.appmytasks.model.pojos.Tarefa;
+import br.com.digitalhouse.appmytasks.viewmodel.viewmodelfragment.TodasTarefasFragmentViewModel;
+import br.com.digitalhouse.appmytasks.views.adapter.RecyclerViewTarefaAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +26,7 @@ public class TodasTarefasFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerViewTarefaAdapter adapter;
     private List<Tarefa> tarefaList = new ArrayList<>();
-    private TarefaDao tarefaDao;
+    private TodasTarefasFragmentViewModel viewModel;
 
     public TodasTarefasFragment() {
         // Required empty public constructor
@@ -47,33 +44,33 @@ public class TodasTarefasFragment extends Fragment {
         initViews(view);
 
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        buscaTodasTarefas();
+        //Método que busca as tarefas recentes
+        viewModel.buscaTodasTarefas();
+
+        /*Método que retorna o valor da lista de tarefas onde é atribuido para o adapter a lista retornada
+        Nesse método é passado o proprietário que nesse caso é o fragment como primeiro parametro
+        E no segundo parametro é passado o objeto Observer que será chamado quando a mudança acontecer
+        É nesse método que a interface gráfica deve ser atualiada com os novos dados vindo do viewmodel
+        */
+        viewModel.retornaTodasTarefas().observe(this, tarefas -> {
+            adapter.atualizaListaTarefa(tarefas);
+        });
 
         return view;
     }
 
+
     private void initViews(View view) {
         recyclerView = view.findViewById(R.id.recyclerViewTodasTarefas);
         adapter = new RecyclerViewTarefaAdapter(tarefaList);
+        viewModel = ViewModelProviders.of(this).get(TodasTarefasFragmentViewModel.class);
 
-        //TODO: inicializar o DAO
-        tarefaDao = DatabaseLocal.getDatabase(getActivity()).tarefaDao();
+
     }
 
     //TODO: Desenvolver o método que busca todas as tarefas
 
-    private void buscaTodasTarefas() {
 
-        tarefaDao.getAllTarefas()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(tarefas -> {
-                            adapter.atualizaListaTarefa(tarefas);
-                        },
-                        throwable -> {
-                            Log.i("TAG", "método getAllProdutos" + throwable.getMessage());
-                        });
-    }
 }
