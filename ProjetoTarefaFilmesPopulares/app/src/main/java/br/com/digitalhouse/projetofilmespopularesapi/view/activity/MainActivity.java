@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.security.auth.Destroyable;
+
 import br.com.digitalhouse.projetofilmespopularesapi.R;
 import br.com.digitalhouse.projetofilmespopularesapi.model.Result;
 import br.com.digitalhouse.projetofilmespopularesapi.view.Interface.OnClickDetalhe;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements OnClickDetalhe {
     private List<Result> listaFilmesPop = new ArrayList<>();
     private ViewModelFilmesPopulares viewModel;
     public static final String FILME_KEY = "filme";
+    public static final String DESCRIPTION_KEY = "descricao";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements OnClickDetalhe {
         Intent intent = new Intent(MainActivity.this, DetalheFilmesPopularesActivity.class);
         Bundle bundle = new Bundle();
         bundle.putParcelable(FILME_KEY, result);
+        bundle.putParcelable(DESCRIPTION_KEY, result);
         intent.putExtras(bundle);
         startActivity(intent);
 
