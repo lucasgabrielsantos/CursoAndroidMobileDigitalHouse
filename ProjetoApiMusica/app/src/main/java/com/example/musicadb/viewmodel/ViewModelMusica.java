@@ -17,14 +17,14 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class ViewModel extends AndroidViewModel {
+public class ViewModelMusica extends AndroidViewModel {
 
     private MutableLiveData<List<Album>> listaAlbum = new MutableLiveData<>();
     private MutableLiveData<Boolean> loading = new MutableLiveData<>();
     private CompositeDisposable disposable = new CompositeDisposable();
     private AudioRepository repository = new AudioRepository();
 
-    public ViewModel(@NonNull Application application) {
+    public ViewModelMusica(@NonNull Application application) {
 
         super(application);
     }
@@ -50,5 +50,11 @@ public class ViewModel extends AndroidViewModel {
                                     Log.i("LOG", "erro" + throwable.getMessage());
                                 })
         );
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        disposable.clear();
     }
 }
