@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        viewModelMusica.getAllAlbuns("195003/");
+       viewModelMusica.getAllAlbuns("coldplay");
 
         viewModelMusica.getListaAlbum().observe(this, resultaLista -> {
             adapter.atualizaLista(resultaLista);

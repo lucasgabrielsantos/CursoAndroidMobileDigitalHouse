@@ -8,7 +8,7 @@ import retrofit2.http.Query;
 
 public interface AudioAPI {
 
-    @GET("searchalbum.php")
+    @GET("search.php")
     Observable<Artista> getAllAlbumList(
         @Query("s") String artista);
     }

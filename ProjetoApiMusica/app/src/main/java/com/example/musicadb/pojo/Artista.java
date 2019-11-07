@@ -1,22 +1,21 @@
 
 package com.example.musicadb.pojo;
 
+import java.util.List;
 import com.google.gson.annotations.Expose;
 
-import java.util.List;
-
-
+@SuppressWarnings("unused")
 public class Artista {
 
     @Expose
-    private List<Album> album;
+    private List<Artist> artists;
 
-    public List<Album> getAlbum() {
-        return album;
+    public List<Artist> getArtists() {
+        return artists;
     }
 
-    public void setAlbum(List<Album> album) {
-        this.album = album;
+    public void setArtists(List<Artist> artists) {
+        this.artists = artists;
     }
 
 }

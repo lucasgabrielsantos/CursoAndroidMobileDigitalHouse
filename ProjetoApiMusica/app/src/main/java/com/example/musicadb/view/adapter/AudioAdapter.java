@@ -39,14 +39,13 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-
-        return listaArtista.size();
+        return listaArtista != null ? listaArtista.size() : 0;
     }
 
     public void atualizaLista(List<Artist> resultaLista) {
 
         if (this.listaArtista.isEmpty()) {
-            this.listaArtista = listaArtista;
+            this.listaArtista = resultaLista;
         } else {
             this.listaArtista.addAll(listaArtista);
         }
@@ -69,9 +68,9 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> 
 
         public void onBind(Artist musica) {
 
-            Picasso.get().load("https://www.theaudiodb.com/images/media/artist/thumb/" + musica.getStrArtistBanner()).into(imageView);
+            Picasso.get().load("https://www.theaudiodb.com/images/media/artist/thumb/" + musica.getStrArtistThumb()).into(imageView);
 
-            textView.setText(musica.getStrBiographyPT());
+            textView.setText(musica.getStrArtist());
         }
     }
 }

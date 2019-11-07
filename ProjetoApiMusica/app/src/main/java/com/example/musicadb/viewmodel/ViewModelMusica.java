@@ -39,9 +39,9 @@ public class ViewModelMusica extends AndroidViewModel {
     }
 
 
-    public void getAllAlbuns(String apiKey) {
+    public void getAllAlbuns(String nomemusica) {
         disposable.add(
-                repository.getAlbumList(apiKey)
+                repository.getAlbumList(nomemusica)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe(disposable1 -> loading.setValue(true))
