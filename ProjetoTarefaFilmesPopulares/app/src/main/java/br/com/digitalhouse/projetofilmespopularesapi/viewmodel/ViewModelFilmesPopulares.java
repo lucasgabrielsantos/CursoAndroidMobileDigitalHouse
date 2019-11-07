@@ -10,10 +10,12 @@ import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
+import br.com.digitalhouse.projetofilmespopularesapi.model.FilmePopular;
 import br.com.digitalhouse.projetofilmespopularesapi.model.Result;
 import br.com.digitalhouse.projetofilmespopularesapi.repository.FilmePopularRepository;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class ViewModelFilmesPopulares extends AndroidViewModel {

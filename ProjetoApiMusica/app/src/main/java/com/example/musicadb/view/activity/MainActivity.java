@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.example.musicadb.R;
-import com.example.musicadb.pojo.Album;
+import com.example.musicadb.pojo.Artist;
 import com.example.musicadb.view.adapter.AudioAdapter;
 import com.example.musicadb.viewmodel.ViewModelMusica;
 
@@ -23,9 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private AudioAdapter adapter;
-    private List<Album> listamusica = new ArrayList<>();
+    private List<Artist> listamusica = new ArrayList<>();
     private ViewModelMusica viewModelMusica;
-    public static final String AUDIO_KEY = "audio";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void initViews(){
 
-        recyclerView.findViewById(R.id.recyclerview);
-        progressBar.findViewById(R.id.progressBar);
+        recyclerView = findViewById(R.id.recyclerview);
+        progressBar = findViewById(R.id.progressBar);
         adapter = new AudioAdapter(listamusica);
         viewModelMusica = ViewModelProviders.of(this).get(ViewModelMusica.class);
 

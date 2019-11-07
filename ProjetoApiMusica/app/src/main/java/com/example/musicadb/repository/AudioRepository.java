@@ -8,7 +8,7 @@ import static com.example.musicadb.data.remote.RetroFitService.getApiService;
 
 public class AudioRepository {
 
-    public Observable<Artista> getAlbum(String artista){
-        return getApiService().getAllAlbumList(artista);
+    public Observable<Artista> getAlbumList(String apiKey){
+        return getApiService().getAllAlbumList(apiKey);
     }
 }

@@ -10,17 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musicadb.R;
-import com.example.musicadb.pojo.Album;
-import com.example.musicadb.pojo.Artista;
+import com.example.musicadb.pojo.Artist;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> {
 
-    private List<Album> listaArtista;
+    private List<Artist> listaArtista;
 
-    public AudioAdapter(List<Album> listaArtista) {
+    public AudioAdapter(List<Artist> listaArtista) {
         this.listaArtista = listaArtista;
     }
 
@@ -34,26 +33,26 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Album filmeartista = listaArtista.get(position);
+        final Artist filmeartista = listaArtista.get(position);
         holder.onBind(filmeartista);
     }
 
     @Override
     public int getItemCount() {
+
         return listaArtista.size();
     }
 
-    public void atualizaLista(List<Album> resultaLista){
+    public void atualizaLista(List<Artist> resultaLista) {
 
-        if(this.listaArtista.isEmpty()){
+        if (this.listaArtista.isEmpty()) {
             this.listaArtista = listaArtista;
-        }else{
+        } else {
             this.listaArtista.addAll(listaArtista);
         }
         notifyDataSetChanged();
 
     }
-
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -68,11 +67,11 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> 
             textView = itemView.findViewById(R.id.txtTitulo);
         }
 
-        public void onBind(Album musica) {
+        public void onBind(Artist musica) {
 
-            Picasso.get().load("https://www.theaudiodb.com/images/media/artist/thumb/uxrqxy1347913147.jpg" + musica.getStrAlbum()).into(imageView);
+            Picasso.get().load("https://www.theaudiodb.com/images/media/artist/thumb/" + musica.getStrArtistBanner()).into(imageView);
 
-            textView.setText(musica.getIdAlbum());
+            textView.setText(musica.getStrBiographyPT());
         }
     }
 }
