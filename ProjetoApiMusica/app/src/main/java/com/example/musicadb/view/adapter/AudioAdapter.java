@@ -68,9 +68,9 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> 
 
         public void onBind(Artist musica) {
 
-            Picasso.get().load("https://www.theaudiodb.com/images/media/artist/thumb/" + musica.getStrArtistThumb()).into(imageView);
+            Picasso.get().load(musica.getStrArtistThumb()).into(imageView);
 
-            textView.setText(musica.getStrArtist());
+            textView.setText(musica.getStrBiographyPT());
         }
     }
 }
