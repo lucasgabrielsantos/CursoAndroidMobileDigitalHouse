@@ -10,16 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musicadb.R;
-import com.example.musicadb.pojo.Artist;
+import com.example.musicadb.pojo.Loved;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> {
 
-    private List<Artist> listaArtista;
+    private List<Loved> listaArtista;
 
-    public AudioAdapter(List<Artist> listaArtista) {
+    public AudioAdapter(List<Loved> listaArtista) {
         this.listaArtista = listaArtista;
     }
 
@@ -33,7 +33,7 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Artist filmeartista = listaArtista.get(position);
+        final Loved filmeartista = listaArtista.get(position);
         holder.onBind(filmeartista);
     }
 
@@ -42,7 +42,7 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> 
         return listaArtista != null ? listaArtista.size() : 0;
     }
 
-    public void atualizaLista(List<Artist> resultaLista) {
+    public void atualizaLista(List<Loved> resultaLista) {
 
         if (this.listaArtista.isEmpty()) {
             this.listaArtista = resultaLista;
@@ -66,11 +66,11 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> 
             textView = itemView.findViewById(R.id.txtTitulo);
         }
 
-        public void onBind(Artist musica) {
+        public void onBind(Loved musica) {
 
-            Picasso.get().load(musica.getStrArtistThumb()).into(imageView);
+            Picasso.get().load(musica.getStrTrackThumb()).into(imageView);
 
-            textView.setText(musica.getStrBiographyPT());
+            textView.setText(musica.getStrArtist());
         }
     }
 }
