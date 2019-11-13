@@ -1,5 +1,6 @@
 package br.com.digitalhouse.projetofilmespopularesapi.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import static br.com.digitalhouse.projetofilmespopularesapi.view.activity.MainAc
 public class DetalheFilmesPopularesActivity extends AppCompatActivity {
 
     private ImageView imageView;
+    private ImageView imageViewback;
     private TextView textViewTitulo;
     private TextView textViewDetalhe;
 
@@ -29,21 +31,24 @@ public class DetalheFilmesPopularesActivity extends AppCompatActivity {
 
         if (getIntent() != null && getIntent().getExtras() != null) {
 
+
             Result result = getIntent().getExtras().getParcelable(FILME_KEY);
             Result result1 = getIntent().getExtras().getParcelable(DESCRIPTION_KEY);
             Picasso.get().load("https://image.tmdb.org/t/p/w500/" + result.getPosterPath()).into(imageView);
+            Picasso.get().load("https://image.tmdb.org/t/p/w500/" + result.getPosterPath()).into(imageViewback);
             textViewTitulo.setText(result.getTitle());
             textViewDetalhe.setText(result1.getOverview());
 
         }
     }
 
-
     public void initViews() {
 
         imageView = findViewById(R.id.imgFilmeDetalhe);
+        imageViewback = findViewById(R.id.img_fundo);
         textViewTitulo = findViewById(R.id.txtTituloDetalhe);
         textViewDetalhe = findViewById(R.id.texViewDetalhe);
+
 
     }
 }

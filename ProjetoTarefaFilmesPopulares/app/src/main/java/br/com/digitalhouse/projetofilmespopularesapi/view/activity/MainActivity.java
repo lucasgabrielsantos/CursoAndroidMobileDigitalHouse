@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements OnClickDetalhe {
 
     @Override
     public void onClick(Result result) {
-        Intent intent = new Intent(MainActivity.this, DetalheFilmesPopularesActivity.class);
+        Intent intent = new Intent(this, DetalheFilmesPopularesActivity.class);
         Bundle bundle = new Bundle();
         bundle.putParcelable(FILME_KEY, result);
         bundle.putParcelable(DESCRIPTION_KEY, result);
