@@ -31,7 +31,6 @@ public class DetalheFilmesPopularesActivity extends AppCompatActivity {
 
         if (getIntent() != null && getIntent().getExtras() != null) {
 
-
             Result result = getIntent().getExtras().getParcelable(FILME_KEY);
             Result result1 = getIntent().getExtras().getParcelable(DESCRIPTION_KEY);
             Picasso.get().load("https://image.tmdb.org/t/p/w500/" + result.getPosterPath()).into(imageView);
