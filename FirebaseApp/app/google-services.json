@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1081510646186",
+    "firebase_url": "https://fir-applucasg.firebaseio.com",
+    "project_id": "fir-applucasg",
+    "storage_bucket": "fir-applucasg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081510646186:android:cb826c9679decc2b115bd3",
+        "android_client_info": {
+          "package_name": "br.com.digitalhouse.firebaseapp.lucasg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081510646186-9kqcudquhihjvjq5itg3gusjmh1fm27g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsMzUoScojt7pEjlmGxfDJcwSSA5rKhUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081510646186-9kqcudquhihjvjq5itg3gusjmh1fm27g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
