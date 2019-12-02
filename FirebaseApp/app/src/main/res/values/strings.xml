@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Firebase App</string>
+    <string name="action_logout">Sair</string>
+    <string name="action_favoritos">Favoritos</string>
+    <string name="action_perfil">Perfil</string>
+    <string name="facebook_application_id" translatable="false">1013409375678450</string>
+
+
+    <string name="facebook_app_id">1013409375678450</string>
+    <string name="fb_login_protocol_scheme">fb1013409375678450</string>
+    <string name="action_profile">profile</string>
+
+
+</resources>
