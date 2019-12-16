@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     // Essa validação pode ficar na view em vez do viewmodel, pois ela trata os elementos da tela
     private boolean validar(String email, String password) {
-        if (email.isEmpty()) {
+            if (email.isEmpty()) {
             textInputLayoutEmail.setError("Email não pode ser vazio");
             textInputLayoutEmail.requestFocus();
             return false;
